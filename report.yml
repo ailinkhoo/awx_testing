@@ -1,18 +1,18 @@
-
-# - name: Create folder
-#   hosts: localhost
-#   tasks: 
-#     delegate_facts: True
-#     run_once: yes
-#     file:
-#       path: "./reports"
-#       state: directory
-
-- name: Generate report
+- name: test
   hosts: localhost
   tasks:
-    delegate_facts: True
-    run_once: yes
-    template:
-      src: ./test.j2
-      dest: "./test.txt"
+    - name: patch
+      debug:
+        msg: "testing if playbook works on awx"
+
+    - name: create folder
+      delegate_facts: True
+      run_once: yes
+      file:
+        path: "./reports"
+        state: directory
+
+    - name: Generate report
+      template:
+        src: ./test.j2
+        dest: "./test.csv"
