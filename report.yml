@@ -18,4 +18,4 @@
     - name: Generate report
       template:
         src: ./test.j2
-        dest: "./test.csv"
+        dest: "/var/lib/awx/projects/test.csv"
