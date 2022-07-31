@@ -7,7 +7,17 @@
 
     - name: check date
       debug:
-        msg: "{{ ansible_date_time.date + ansible_date_time.time }}"
+        msg: "{{ ansible_date_time.date }}"
+
+    - shell: printf "X\nY\nZ\n   1 some_word1\n   1 some_word2\n   1 some_word3\n   1 some_word4" |  awk '{print $2}'
+      register: output
+    - debug:
+        msg: "{{ output.stdout_lines }}"
+
+    - name: Save command output for later
+      set_fact:
+        cacheable: yes
+        output1: "{{ output.stdout_lines }}"
 
 
     # - name: Save command output for later
