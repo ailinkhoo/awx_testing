@@ -1,0 +1,6 @@
+- name: Generate report
+  delegate_facts: True
+  run_once: yes
+  template:
+    src: ./roles/patch/files/test.j2
+    dest: "./roles/patch/files/test.txt"
