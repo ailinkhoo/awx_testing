@@ -5,8 +5,12 @@
       debug:
         msg: "testing if playbook works on awx"
 
+    - name: check date
+      debug:
+        msg: "{{ ansible_date_time }}"
 
-    - name: Save command output for later
-      set_fact:
-        cacheable: yes
-        output: "{{ msg }}"
+
+    # - name: Save command output for later
+    #   set_fact:
+    #     cacheable: yes
+    #     output: "{{ msg }}"
