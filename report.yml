@@ -11,6 +11,10 @@
       debug:
         msg: code version is " {{ hostvars['localhost']['output1'] }} "
 
+    - name: test code version two
+      debug:
+        msg: code version is " {{ hostvars['localhost']['output1'] }} "
+
     - name: Generate report
       template:
         src: ./test.j2
