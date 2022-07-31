@@ -1,5 +1,5 @@
 - name: test
-  hosts: azure-vm
+  hosts: localhost
   tasks:
     - name: patch
       debug:
