@@ -20,15 +20,12 @@
         output1: "{{ output.stdout_lines }}"
 
 
-- name: Generate report
-  delegate_to: localhost
-  delegate_facts: True
-  run_once: yes
-  template:
-    src: ./test.j2
-    dest: "./test.txt"
+    - name: Generate report
+      template:
+        src: ./test.j2
+        dest: "./test.txt"
 
-    # - name: Save command output for later
-    #   set_fact:
-    #     cacheable: yes
-    #     output: "{{ msg }}"
+        # - name: Save command output for later
+        #   set_fact:
+        #     cacheable: yes
+        #     output: "{{ msg }}"
