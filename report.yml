@@ -1,12 +1,12 @@
 
-- name: Create folder
-  hosts: localhost
-  tasks: 
-    delegate_facts: True
-    run_once: yes
-    file:
-      path: "./reports"
-      state: directory
+# - name: Create folder
+#   hosts: localhost
+#   tasks: 
+#     delegate_facts: True
+#     run_once: yes
+#     file:
+#       path: "./reports"
+#       state: directory
 
 - name: Generate report
   hosts: localhost
@@ -15,4 +15,4 @@
     run_once: yes
     template:
       src: ./test.j2
-      dest: "./reports/test.txt"
+      dest: "./test.txt"
