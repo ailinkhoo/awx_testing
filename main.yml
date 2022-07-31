@@ -7,7 +7,7 @@
 
     - name: check date
       debug:
-        msg: "{{ ansible_date_time }}"
+        msg: "{{ ansible_date_time.date + ansible_date_time.time }}"
 
 
     # - name: Save command output for later
