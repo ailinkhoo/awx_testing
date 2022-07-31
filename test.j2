@@ -1,3 +1,3 @@
-    {% for item in {{ output1 }} %}
+    {% for item in {{ hostvars['localhost']['output1'] }} %}
       {{ item }}
     {% endfor %}
