@@ -13,7 +13,7 @@
 
     - name: test code version two
       debug:
-        msg: code version is " {{ hostvars['localhost']['output1'] }} "
+        msg: code version is " {{ output1 }} "
 
     - name: Generate report
       template:
