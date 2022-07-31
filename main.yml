@@ -6,7 +6,7 @@
         msg: "testing if playbook works on awx"
 
 
-- name: Save command output for later
-  set_fact:
-    cacheable: yes
-    output: "{{ output.stdout_lines }}"
+    - name: Save command output for later
+      set_fact:
+        cacheable: yes
+        output: "{{ output.stdout_lines }}"
