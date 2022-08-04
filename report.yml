@@ -15,12 +15,12 @@
       debug:
         var: output1
     
-    - name: create folder
-      delegate_facts: True
-      run_once: yes
-      file:
-        path: "/var/lib/awx/projects/reports"
-        state: directory
+    # - name: create folder
+    #   delegate_facts: True
+    #   run_once: yes
+    #   file:
+    #     path: "/var/lib/awx/projects/reports"
+    #     state: directory
 
     - name: Generate report
       template:
