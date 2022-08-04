@@ -26,5 +26,5 @@
       template:
         src: ./test.j2
         # dest: "./var/lib/awx/projects/reports/test.txt"
-        dest: "./test.txt"
+        dest: "./try2.txt"
     #ansible_python_interpreter: '{{ ansible_playbook_python }}'
