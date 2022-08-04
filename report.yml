@@ -1,15 +1,15 @@
 - name: test
   hosts: localhost
   tasks:
-    - name: create folder
-      delegate_facts: True
-      run_once: yes
-      file:
-        path: "/c/Users/Khoo Ai Lin/Desktop/Cloud suport and devops/5_Apprenticeship/ansible/awx/test"
-        state: directory
-    - name: test code version
-      debug:
-        msg: code version is " {{ hostvars['localhost']['output1'] }} "
+    # - name: create folder
+    #   delegate_facts: True
+    #   run_once: yes
+    #   file:
+    #     path: "/c/Users/Khoo Ai Lin/Desktop/Cloud suport and devops/5_Apprenticeship/ansible/awx/test"
+    #     state: directory
+    # - name: test code version
+    #   debug:
+    #     msg: code version is " {{ hostvars['localhost']['output1'] }} "
 
     - name: test code version two
       debug:
@@ -25,6 +25,6 @@
     - name: Generate report
       template:
         src: ./test.j2
-        dest: "./test-02.csv"
-
+        # dest: "./var/lib/awx/projects/reports/test.txt"
+        dest: ".test.txt"
     #ansible_python_interpreter: '{{ ansible_playbook_python }}'

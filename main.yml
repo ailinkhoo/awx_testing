@@ -1,5 +1,5 @@
 - name: test
-  hosts: 20.222.86.158
+  hosts: localhost
   tasks:
     - name: patch
       debug:
