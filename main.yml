@@ -34,7 +34,8 @@
 
     - name: get json output
       set_fact: 
-        combine_data: "{{ combine_data | default({}) | combine({date, time}) }}" 
+        combine_data: "{{ combine_data | default({}) | combine({'date': date}) }}"
+      cacheable: yes
     
           
 
