@@ -13,6 +13,10 @@
       set_fact:
         date: "Date and time: {{ ansible_date_time.date }}"
 
+    - name: check date
+      debug:
+        var: date
+
     - shell: printf "X\nY\nZ\n   1 some_word1\n   1 some_word2\n   1 some_word3\n   1 some_word4" |  awk '{print $2}'
       register: output
     - debug:

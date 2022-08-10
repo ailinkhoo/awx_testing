@@ -15,9 +15,7 @@
       debug:
         var: output1
     
-    - name: check date
-      debug:
-        var: date
+
     
     # - name: create folder
     #   delegate_facts: True
