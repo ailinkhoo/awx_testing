@@ -5,17 +5,22 @@
       debug:
         msg: "testing if playbook works on awx"
 
-    - name: check date
-      debug:
-        msg: "Date and time: {{ ansible_date_time.date }}"
-
     - name: Date
       set_fact:
-        date: "Date and time: {{ ansible_date_time.date }}"
+        date: "Date: {{ ansible_date_time.date }}"
+
+    - name: Time
+      set_fact:
+        time: "Time: {{ ansible_date_time.time }}"
 
     - name: check date
       debug:
         var: date
+  
+    - name: check time
+      debug:
+        var: time
+
 
     - shell: printf "X\nY\nZ\n   1 some_word1\n   1 some_word2\n   1 some_word3\n   1 some_word4" |  awk '{print $2}'
       register: output
@@ -26,7 +31,10 @@
       set_stats:
         data:
           output1: "{{ output.stdout_lines[3:] }}"
-    
+
+    - name: get json output
+      set_fact: 
+        combine_data: {{ combine_data|default({}) | combine({date, time})}}   
     
           
 
