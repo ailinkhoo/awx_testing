@@ -10,8 +10,8 @@
   
   - name: Fail if return code is not 0
     fail:
-      msg: "The command ({{ item.cmd }}) have a 0 return code"
-    when: item.rc == 0
+      msg: "The command ({{ item.item }}) did not have a 0 return code"
+    when: item.rc != 0
     loop: "{{ echo.results }}"
 
   - name: Place the result of the current item in the variable
