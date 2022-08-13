@@ -12,6 +12,10 @@
         msg: "{{item.stdout}}"
       loop: "{{output.results}}"
 
+    - debug:
+        msg: "{{output.results}}"
+
+
     # - name: Date
     #   set_fact:
     #     date: "Date: {{ ansible_date_time.date }}"
