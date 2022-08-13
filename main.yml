@@ -9,8 +9,8 @@
     register: echo
 
   - name: Fail if return code is not 0
-    fail:
-      msg: "The command ({{ item.cmd }}) did not have a 0 return code"
+    debug:
+      msg: "The command ({{ item.cmd }}) have a 0 return code"
     when: item.rc == 0
     loop: "{{ echo.results }}"
 
