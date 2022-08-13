@@ -7,12 +7,20 @@
       - "one"
       - "two"
     register: echo
-
+  
   - name: Fail if return code is not 0
-    debug:
+    fail:
       msg: "The command ({{ item.cmd }}) have a 0 return code"
     when: item.rc == 0
     loop: "{{ echo.results }}"
+
+  - name: Place the result of the current item in the variable
+    shell: echo "{{ item }}"
+    loop:
+      - one
+      - two
+    register: echo
+    changed_when: echo.stdout != "one"
 
 
     # - name: checking the module
