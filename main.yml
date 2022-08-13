@@ -11,7 +11,7 @@
   - name: Fail if return code is not 0
     fail:
       debug: "The command ({{ item.item }}) have a 0 return code"
-    when: item.rc != 0
+    when: item.rc == 0
     loop: "{{ echo.results }}"
 
   - name: Place the result of the current item in the variable
