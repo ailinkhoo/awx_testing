@@ -7,20 +7,37 @@
       - "one"
       - "two"
     register: echo
-  
-  - name: Fail if return code is not 0
-    debug:
-      msg: "The command ({{ item.item }}) have a 0 return code"
-    when: item.rc == 0
-    loop: "{{ echo.results }}"
 
-  - name: Place the result of the current item in the variable
-    shell: echo "{{ item }}"
-    loop:
-      - one
-      - two
-    register: echo
-    changed_when: echo.stdout != "one"
+- name: Main test
+  block:   
+    - name: Test connection to client server 
+      win_shell: "Test-NetConnection {{ item }} -informationlevel Quiet"
+      # win_shell: "Get-CimInstance -ClassName Win32_PingStatus -Filter "(Address='sccm-client1' or Address='wsus-01' or Address='sccm-client2')" | Format-List * -force"
+      loop:
+        - sccm-client1
+        # - wsus-01
+        - wsus-client2
+      register: connection_output
+
+    - name: Check Server
+      set_fact:
+        client_connectivity: "{{ client_connectivity | default([]) + [item.item ~ ': pass'] }}"
+        cacheable: yes
+      when: "'False' in {{item.stdout_lines}}"
+      loop: "{{connection_output.results}}"
+  # - name: Fail if return code is not 0
+  #   debug:
+  #     msg: "The command ({{ item.item }}) have a 0 return code"
+  #   when: item.rc == 0
+  #   loop: "{{ echo.results }}"
+
+  # - name: Place the result of the current item in the variable
+  #   shell: echo "{{ item }}"
+  #   loop:
+  #     - one
+  #     - two
+  #   register: echo
+  #   changed_when: echo.stdout != "one"
 
 
     # - name: checking the module
