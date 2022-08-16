@@ -8,15 +8,6 @@
       - "two"
     register: echo
 
-- name: Main test
-    win_shell: "Test-NetConnection {{ item }} -informationlevel Quiet"
-    # win_shell: "Get-CimInstance -ClassName Win32_PingStatus -Filter "(Address='sccm-client1' or Address='wsus-01' or Address='sccm-client2')" | Format-List * -force"
-    loop:
-      - sccm-client1
-      # - wsus-01
-      - wsus-client2
-    register: connection_output
-
 - name: Check Server
   set_fact:
     client_connectivity: "{{ client_connectivity | default([]) + [item.item ~ ': pass'] }}"
