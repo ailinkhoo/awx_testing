@@ -1,6 +1,6 @@
 - name: test
   hosts: localhost
-  tasks:
+  # tasks:
   # - name: register loop output
   #   shell: "echo {{ item }}"
   #   loop:
@@ -8,24 +8,24 @@
   #     - "two"
   #   register: echo
 
-  - name: Create a List variable and print it
-    set_fact: 
-      Continents: ["Asia","Africa","Europe","North America",
-      "South America","Antarctica","Australia"]
+  # - name: Create a List variable and print it
+  #   set_fact: 
+  #     Continents: ["Asia","Africa","Europe","North America",
+  #     "South America","Antarctica","Australia"]
 
-  - name: print out index 2
-    debug:
-      var: Continents[2]
+  # - name: print out index 2
+  #   debug:
+  #     var: Continents[2]
 
  
   vars:
-    - europe_cont: "{{ Continents[2] }}"
     - europe: ["england","france","italy" ]
-  
+
   tasks:
     - name: Task1 - Substitute variables
       debug:
-        msg: "{{ europe_cont }}"
+        msg: "{{ europe }}"
+  
 
   # - name: print out index 2
   #   debug:
