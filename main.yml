@@ -15,7 +15,15 @@
 
   - name: print out index 2
     debug:
-      var: Continents[0]
+      var: Continents[2]
+
+  - name: set variable for index 2
+    vars:
+      europe_cont: Continents[2]
+
+  - name: print out index 2
+    debug:
+      var: europe_cont
 
   # - name: Fail if return code is not 0
   #   debug:
