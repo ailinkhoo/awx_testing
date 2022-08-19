@@ -8,12 +8,15 @@
       - "two"
     register: echo
 
-- name: Check Server
-  set_fact:
-    client_connectivity: "{{ client_connectivity | default([]) + [item.item ~ ': pass'] }}"
-    cacheable: yes
-  when: "'False' in {{item.stdout_lines}}"
-  loop: "{{connection_output.results}}"
+- name: Create a List variable and print it
+  set_fact: 
+    Continents: ["Asia","Africa","Europe","North America",
+    "South America","Antarctica","Australia"]
+
+- name: print out index 2
+  debug:
+    var: Continents[0]
+
   # - name: Fail if return code is not 0
   #   debug:
   #     msg: "The command ({{ item.item }}) have a 0 return code"
@@ -29,16 +32,16 @@
   #   changed_when: echo.stdout != "one"
 
 
-    # - name: checking the module
-    #   command: "{{ item }}"
-    #   loop:
-    #     - date
-    #     - uptime
-    #   register: output
+    - name: checking the module
+      command: "{{ item }}"
+      loop:
+        - date
+        - uptime
+      register: output
 
-    # - debug:
-    #     msg: "{{item.stdout}}"
-    #   loop: "{{output.results}}"
+    - debug:
+        msg: "{{item.stdout}}"
+      loop: "{{output.results}}"
 
     # - name: Date
     #   set_fact:
