@@ -22,9 +22,9 @@
     - europe_cont: "{{ Continents[2] }}"
     - europe: ["england","france","italy" ]
 
-  - name: print out index 2
-    debug:
-      var: europe_cont
+  # - name: print out index 2
+  #   debug:
+  #     var: europe_cont
 
   # - name: Fail if return code is not 0
   #   debug:
