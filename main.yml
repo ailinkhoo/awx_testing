@@ -19,7 +19,7 @@
 
   - name: set variable for index 2
     vars:
-      europe_cont: Continents[2]
+      europe_cont: "{{ Continents[2] }}"
 
   - name: print out index 2
     debug:
