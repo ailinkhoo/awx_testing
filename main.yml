@@ -21,6 +21,11 @@
   vars:
     - europe_cont: "{{ Continents[2] }}"
     - europe: ["england","france","italy" ]
+  
+  tasks:
+    - name: Task1 - Substitute variables
+      debug:
+        msg: "{{ europe_cont }}"
 
   # - name: print out index 2
   #   debug:
