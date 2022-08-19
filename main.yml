@@ -1,21 +1,21 @@
 - name: test
   hosts: localhost
   tasks:
-  - name: register loop output
-    shell: "echo {{ item }}"
-    loop:
-      - "one"
-      - "two"
-    register: echo
+  # - name: register loop output
+  #   shell: "echo {{ item }}"
+  #   loop:
+  #     - "one"
+  #     - "two"
+  #   register: echo
 
-- name: Create a List variable and print it
-  set_fact: 
-    Continents: ["Asia","Africa","Europe","North America",
-    "South America","Antarctica","Australia"]
+  - name: Create a List variable and print it
+    set_fact: 
+      Continents: ["Asia","Africa","Europe","North America",
+      "South America","Antarctica","Australia"]
 
-- name: print out index 2
-  debug:
-    var: Continents[0]
+  - name: print out index 2
+    debug:
+      var: Continents[0]
 
   # - name: Fail if return code is not 0
   #   debug:
